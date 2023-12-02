@@ -1,0 +1,10 @@
+# rust
+/target
+
+# python
+.venv
+.python-version
+__pycache__
+
+# input files
+in.txt

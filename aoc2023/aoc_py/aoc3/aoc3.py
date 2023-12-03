@@ -89,7 +89,7 @@ def compute_first_part_solution(grid_numbers: Sequence[GridNumber]) -> int:
     return sum
 
 
-def compute_second_part_solution(grid_numbers: Sequence[GridNumber]) -> int:
+def compute_second_part_solution(grid: Grid, grid_numbers: Sequence[GridNumber]) -> int:
     potential_gears = defaultdict(list)
     for grid_number in grid_numbers:
         if grid_number.is_engine_number():
@@ -117,7 +117,7 @@ if __name__ == "__main__":
         print(f"sum={first_solution}")
         print(f"Took {time.perf_counter() - t0:.5f} seconds.")
 
-        second_solution = compute_second_part_solution(grid_numbers)
+        second_solution = compute_second_part_solution(grid, grid_numbers)
         print("Second part")
         print(f"sum={second_solution}")
         print(f"Took {time.perf_counter() - t0:.5f} seconds.")

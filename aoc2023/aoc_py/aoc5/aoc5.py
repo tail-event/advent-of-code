@@ -10,11 +10,11 @@ class Interval:
     dest: int
     range_: int
 
-    def is_inside(self, x: int) -> bool:
+    def contains(self, x: int) -> bool:
         return self.source <= x < self.source + self.range_
 
     def get_target(self, x: int) -> Optional[int]:
-        if self.is_inside(x):
+        if self.contains(x):
             diff = x - self.source
             return self.dest + diff
         return None
@@ -41,7 +41,7 @@ class Mapping:
 
         raise RuntimeError("Should never arrive here")
 
-    def sort_and_add_dummy_intervals(self) -> None:
+    def add_dummy_intervals(self) -> None:
         self.intervals = sorted(self.intervals, key=lambda i: i.source)
         dummy_intervals = []
 
@@ -120,10 +120,10 @@ if __name__ == "__main__":
                 new_map.intervals.append(Interval(source, dest, range_))
 
             cascade_maps.append(new_map)
-            new_map.sort_and_add_dummy_intervals()
+            new_map.add_dummy_intervals()
 
         print("First part solution", first_solution(cascade_maps))
-        print(f"Took {time.perf_counter() - t0} seconds")
+        print(f"Took {time.perf_counter() - t0:.5f} seconds")
 
         print("Second part solution", second_solution(cascade_maps, seeds[0::2], seeds[1::2]))
-        print(f"Took {time.perf_counter() - t0} seconds")
+        print(f"Took {time.perf_counter() - t0:.5f} seconds")

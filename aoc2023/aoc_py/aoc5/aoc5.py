@@ -42,6 +42,17 @@ class Mapping:
         raise RuntimeError("Should never arrive here")
 
     def add_dummy_intervals(self) -> None:
+        """
+        Add dummy intervals that are not present in the input.
+
+        Example:
+            For the seed_to_soil map with initial intervals:
+                Interval(source=50, dest=52, range_=48), Interval(source=98, dest=50, range_=2)
+            we add:
+                Interval(source=0, dest=0, range_=50), Interval(source=98, dest=98, range_=100000000000000000000)])
+            In this case we added an interval at the start and one at the end.
+            We may also add intervals in the middle.
+        """
         self.intervals = sorted(self.intervals, key=lambda i: i.source)
         dummy_intervals = []
 
@@ -90,6 +101,10 @@ def second_solution(cascade_maps: list[Mapping], seeds: list[int], ranges: list[
                 curr = map.get_target(curr)
 
             lowest = curr.targets[-1] if lowest is None else min(curr.targets[-1], lowest)
+
+            # We may skip to check at most this number of seeds starting from our current seed
+            # Because we are sure that all the target locations (solutions) between seed and seed + can_skip are higher
+            # We can't skip more because we may end in intervals which lead to better lowest target locations
             can_skip = min(
                 [
                     (curr.matched_intervals[i].dest + curr.matched_intervals[i].range_) - curr.targets[i] - 1
@@ -121,6 +136,8 @@ if __name__ == "__main__":
 
             cascade_maps.append(new_map)
             new_map.add_dummy_intervals()
+
+            print(new_map)
 
         print("First part solution", first_solution(cascade_maps))
         print(f"Took {time.perf_counter() - t0:.5f} seconds")

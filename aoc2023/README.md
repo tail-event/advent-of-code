@@ -19,12 +19,12 @@
 - [Python - p12](aoc_py/aoc3/aoc3.py)
 - [Rust - p12](src/bin/aoc3/main.rs)
 #### Day4
-- [Python - p12](aoc_py/ao4/aoc4.py)
+- [Python - p12](aoc_py/aoc4/aoc4.py)
 - Rust, TODO
 #### Day5
 - [Python - p12](aoc_py/aoc5/aoc5.py)
 - [Rust - p12](src/bin/aoc3/main.rs)
     - Just brute force (see Python for the fast version), TODO
 #### Day6
-- [Python - p12](aoc_py/aoc5/aoc5.py)
+- [Python - p12](aoc_py/aoc6/aoc6.py)
 - Rust, TODO

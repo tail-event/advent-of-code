@@ -24,4 +24,7 @@
 #### Day5
 - [Python - p12](aoc_py/aoc5/aoc5.py)
 - [Rust - p12](src/bin/aoc3/main.rs)
-    - Just brute force, TODO
+    - Just brute force (see Python for the fast version), TODO
+#### Day6
+- [Python - p12](aoc_py/aoc5/aoc5.py)
+- Rust, TODO

@@ -18,9 +18,9 @@ def compute_n_holding_ways(time: int, distance: int) -> int:
     lower = (-b - math.sqrt(b**2 - 4 * a * c)) / (2 * a)
     upper = (-b + math.sqrt(b**2 - 4 * a * c)) / (2 * a)
 
-    lower_int = lower + 1 if int(lower) == lower else int(math.ceil(lower))
-    upper_int = upper - 1 if int(upper) == upper else int(math.floor(upper))
-    return int(upper_int - lower_int + 1)
+    lower_int = int(lower + 1) if int(lower) == lower else math.ceil(lower)
+    upper_int = int(upper - 1) if int(upper) == upper else math.floor(upper)
+    return upper_int - lower_int + 1
 
 
 def first_part_solution(times: list[int], distances: list[int]) -> int:

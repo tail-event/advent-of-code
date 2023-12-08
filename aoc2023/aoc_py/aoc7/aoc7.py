@@ -28,7 +28,7 @@ class Card:
         return self.value < other.value
 
     def __eq__(self, other: object) -> bool:
-        if not isinstance(object, Card):
+        if not isinstance(other, Card):
             return False
         return self.value == other.value
 

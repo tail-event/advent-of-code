@@ -137,8 +137,6 @@ if __name__ == "__main__":
             cascade_maps.append(new_map)
             new_map.add_dummy_intervals()
 
-            print(new_map)
-
         print("First part solution", first_solution(cascade_maps))
         print(f"Took {time.perf_counter() - t0:.5f} seconds")
 

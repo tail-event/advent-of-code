@@ -5,6 +5,7 @@
 .venv
 .python-version
 __pycache__
+pyrightconfig.json
 
 # input files
 in.txt

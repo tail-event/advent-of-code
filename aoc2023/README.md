@@ -30,10 +30,10 @@
 - Rust, TODO
 #### Day7
 - [Python - p12](aoc_py/aoc7/aoc7.py)
-- Rust, TODO
+- [Rust - p12](src/bin/aoc7/main.rs)
 #### Day8
 - [Python - p12](aoc_py/aoc8/aoc8.py)
 - Rust, TODO
 #### Day9
 - [Python - p12](aoc_py/aoc9/aoc9.py)
-- Rust, TODO
+- [Rust - p12](src/bin/aoc9/main.rs)

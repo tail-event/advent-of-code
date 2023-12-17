@@ -22,7 +22,7 @@ impl GridNumber {
         self.digits.iter().collect::<String>().parse().unwrap()
     }
     fn is_part_number(&self) -> bool {
-        self.near_symbols.len() > 0
+        !self.near_symbols.is_empty()
     }
 }
 
@@ -93,10 +93,8 @@ impl Grid {
                 }
 
                 // Reset at the end of line
-                if j == row.len() - 1 {
-                    if scanning_number.is_some() {
-                        scanning_number = None;
-                    }
+                if j == row.len() - 1 && scanning_number.is_some() {
+                    scanning_number = None;
                 }
             }
         }
@@ -117,7 +115,7 @@ impl Display for Grid {
     }
 }
 
-fn first_part_solution(grid_numbers: &Vec<GridNumber>) -> i32 {
+fn first_part_solution(grid_numbers: &[GridNumber]) -> i32 {
     grid_numbers
         .iter()
         .filter(|&grid_num| grid_num.is_part_number())
@@ -133,8 +131,8 @@ fn second_part_solution(grid: &Grid, grid_numbers: &Vec<GridNumber>) -> i32 {
             if grid.grid[i][j] == '*' {
                 probable_gears
                     .entry((i, j))
-                    .or_insert(Vec::new())
-                    .push(&grid_number);
+                    .or_default()
+                    .push(grid_number);
             }
         }
     }

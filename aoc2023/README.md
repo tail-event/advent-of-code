@@ -49,3 +49,6 @@
 #### Day13
 - [Python - p12](aoc_py/aoc13/aoc13.py)
 - Rust, TODO
+#### Day14
+- [Python - p12](aoc_py/aoc14/aoc14.py)
+- Rust, TODO
